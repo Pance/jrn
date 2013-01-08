@@ -1,5 +1,7 @@
-jrn, a simple journal and data tracker.
-=======================================
+jrn
+===
+a simple journal and data tracker.
+==================================
 
 Goals
 -----
