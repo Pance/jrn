@@ -22,5 +22,8 @@ $storage_location = "/Users/pants/Dropbox/journal"
 # if not exists $storage_location/y/m/
   # create folder
 
+# if not exists $storage_location/y/m/d.jrn
+  # create new document, copied from template of exists
+
 exec("vim " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn")
 # print "vim " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn\n"
