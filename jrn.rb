@@ -16,7 +16,17 @@ end
 
 y = Date.today.year.to_s
 
-$storage_location = "/Users/pants/Dropbox/journal"
+# load storage location
+config_file_lines = File.open("config.jrn", "rb").read
+config_file_lines.each_line do |s|
+  if s.split('=')[0] == "storage_location" 
+		$storage_location = s.split('=')[1].strip
+	end
+end
+if $storage_location == nil
+  print "storage_location not set in config file\n"
+  exit
+end
 $template_location = $storage_location + "/template.jrn"
 
 # if not exists $storage_location/y/m/
