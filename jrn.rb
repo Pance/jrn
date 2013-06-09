@@ -17,7 +17,7 @@ end
 y = Date.today.year.to_s
 
 # load storage location
-config_file_lines = File.open("config.jrn", "rb").read
+config_file_lines = File.open(File.expand_path("~/.jrn/config.jrn"), "rb").read
 config_file_lines.each_line do |s|
   if s.split('=')[0] == "storage_location" 
 		$storage_location = s.split('=')[1].strip
@@ -53,6 +53,9 @@ if !Pathname.new(day_journal_file).exist?
     # print "cp " + $template_location + " " + day_journal_file + "\n"
   end
 end
+
+#TODO put the date and time at the beginning of the document
+h = DateTime.now.hour.to_s
 
 
 exec("vim " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn")
