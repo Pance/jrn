@@ -1,4 +1,4 @@
-#!/Users/pants/.rvm/rubies/ruby-1.9.3-p0/bin/ruby
+#!/usr/bin/ruby
 
 require 'date'
 require 'pathname'
@@ -50,6 +50,7 @@ if !Pathname.new(day_journal_file).exist?
   if Pathname.new($template_location).exist?
 		# print $template_location + " exists. Copying template into " + day_journal_file + "\n"
 		FileUtils.cp $template_location, day_journal_file
+		FileUtils.chmod "u=rw", day_journal_file
     # print "cp " + $template_location + " " + day_journal_file + "\n"
 	else
 		# print $template_location + " does NOT exist.\n"
@@ -60,5 +61,5 @@ end
 h = DateTime.now.hour.to_s
 
 
-exec("vim " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn")
+exec("vi " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn")
 # print "vim " + $storage_location + "/" + y + "/" + m + "/" + d + ".jrn\n"
