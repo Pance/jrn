@@ -50,7 +50,7 @@ if !Pathname.new(day_journal_file).exist?
   if Pathname.new($template_location).exist?
 		# print $template_location + " exists. Copying template into " + day_journal_file + "\n"
 		FileUtils.cp $template_location, day_journal_file
-		FileUtils.chmod "u=rw", day_journal_file
+		FileUtils.chmod 0606, day_journal_file
     # print "cp " + $template_location + " " + day_journal_file + "\n"
 	else
 		# print $template_location + " does NOT exist.\n"
